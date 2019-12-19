@@ -1,7 +1,7 @@
 function ScrollWindow(event){
     let className = "f-nav";
     let header = document.querySelector("header.header");
-console.log(45);
+
     if(
         ( document.body.scrollTop  > header.clientHeight ) ||
         ( document.documentElement.scrollTop > header.clientHeight )

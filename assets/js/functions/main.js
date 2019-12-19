@@ -1,9 +1,3 @@
-function Route(el, collback){
-    if(el){
-        collback(el);
-    }
-}
-
 (function(){
 
     //= ./modal-window.js
@@ -16,19 +10,20 @@ function Route(el, collback){
 
     let modalsWindow = [];
 
-    Route(
-        document.getElementsByClassName("btn-consultation")[0],
-        function(el){
-            modalsWindow.push({"event" : "btn-consultation", "modal" : "modal-consultation"});
-        }
-    )
+    (function( el ){
+        if( !(el instanceof HTMLElement) ){ /* ... */ return null;}
+
+        modalsWindow.push({"event" : "btn-consultation", "modal" : "modal-consultation"});
+
+    }( document.getElementsByClassName("btn-consultation")[0] ));
+
     
-    Route(
-        document.getElementsByClassName("video-block-img")[0],
-        function(el){
-            modalsWindow.push({"event" : "video-block-img", "modal" : "modal-video"});
-        }
-    )
+    (function( el ){
+        if( !(el instanceof HTMLElement) ){ /* ... */ return null;}
+
+        modalsWindow.push({"event" : "video-block-img", "modal" : "modal-video"});
+
+    }( document.getElementsByClassName("video-block-img")[0] ));
 
     modalWindow(modalsWindow);
 
